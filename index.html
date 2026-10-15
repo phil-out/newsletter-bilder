@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Wuche-News – Familien-Ideen für Zürich, jeden Sonntag</title>
+<meta name="description" content="Jeden Sonntag ein Mail mit Ideen für die kommende Woche: Feste, Spielplätze, Ausflüge, Regenwetter-Pläne und ein Rezept – für Zürcher Familien mit Kindern um 3 bis 5 Jahre. Gratis.">
+<meta property="og:title" content="Wuche-News – Familien-Ideen für Zürich">
+<meta property="og:description" content="Jeden Sonntag Ideen für die kommende Woche – mit dem Namen eures Kindes. Gratis.">
+<meta property="og:image" content="https://newsletter.duss.io/png/held-tram.png">
+<meta property="og:url" content="https://newsletter.duss.io/">
+<link rel="icon" href="png/rubrik-wochenende.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --seite: #EFE5D2; --papier: #FBF5EA; --weiss: #FFFDF8;
+    --ink: #23203A; --muted: #6F6A7D; --linie: #E7D9BF;
+    --rot: #F0522E; --blau: #2E6BE6; --gelb: #FFC53D; --himmel: #DCE6FA;
+    --titel: "Fredoka", "Arial Rounded MT Bold", Helvetica, Arial, sans-serif;
+    --text: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--seite); color: var(--ink); font-family: var(--text); line-height: 1.55; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--rot); font-weight: 800; text-decoration: none; }
+  .blatt { max-width: 1080px; margin: 20px auto; background: var(--papier); border-radius: 32px; overflow: hidden; }
+  .innen { padding: 0 48px; }
+
+  /* Kopf */
+  .marke { padding: 30px 48px 0; font-family: var(--titel); font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+  .punkte i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+
+  .held { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; padding: 18px 48px 0; }
+  h1 { font-family: var(--titel); font-weight: 700; font-size: 60px; line-height: 1; margin: 0; letter-spacing: -.01em; }
+  h1 .name { color: var(--rot); }
+  .schnoerkel { width: 210px; margin: 12px 0 0 2px; }
+  .unterzeile { font-size: 19px; margin: 18px 0 0; max-width: 470px; }
+  .pill { display: inline-block; margin-top: 18px; background: var(--ink); color: var(--papier); font-family: var(--titel); font-weight: 600; font-size: 15px; padding: 7px 16px; border-radius: 999px; }
+  .tram { width: 100%; }
+
+  /* Formular */
+  .formular-band { background: var(--gelb); margin-top: 0; padding: 34px 48px 40px; }
+  .formular { max-width: 760px; }
+  .formular h2 { font-family: var(--titel); font-weight: 700; font-size: 30px; margin: 0 0 4px; }
+  .formular p.hinweis { margin: 0 0 18px; font-size: 16px; }
+  .felder { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end; }
+  label { display: block; font-weight: 800; font-size: 14px; margin-bottom: 6px; }
+  input[type=email], input[type=text] {
+    width: 100%; font: inherit; font-size: 17px; padding: 14px 16px; border: 2.5px solid var(--ink);
+    border-radius: 16px; background: var(--weiss); color: var(--ink); outline: none;
+  }
+  input:focus { border-color: var(--blau); box-shadow: 0 0 0 4px rgba(46,107,230,.18); }
+  button {
+    font-family: var(--titel); font-weight: 700; font-size: 19px; color: #fff; background: var(--rot);
+    border: 0; border-radius: 16px; padding: 15px 26px; cursor: pointer; white-space: nowrap;
+    box-shadow: 0 4px 0 var(--ink); transition: transform .08s, box-shadow .08s;
+  }
+  button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+  .einwilligung { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 14.5px; font-weight: 400; }
+  .einwilligung input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--ink); flex: none; }
+  .vorschau { margin-top: 16px; font-size: 15px; }
+  .vorschau b { font-family: var(--titel); font-weight: 700; }
+  .honig { position: absolute; left: -9999px; }
+
+  /* Wellen + Rubriken */
+  .welle { width: calc(100% - 96px); margin: 40px 48px 0; }
+  h3.abschnitt { font-family: var(--titel); font-weight: 700; font-size: 34px; margin: 32px 0 6px; }
+  .abschnitt-intro { color: var(--muted); font-size: 17px; margin: 0 0 22px; max-width: 640px; }
+  .rubriken { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .karte { background: var(--weiss); border-radius: 22px; padding: 18px 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .karte img { width: 64px; height: 64px; flex: none; }
+  .karte h4 { font-family: var(--titel); font-weight: 600; font-size: 19px; margin: 2px 0 2px; }
+  .karte p { margin: 0; font-size: 15px; color: var(--ink); }
+
+  .schritte { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
+  .schritt { padding: 4px 6px; }
+  .schritt::before { counter-increment: s; content: counter(s); display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 50%; background: var(--blau); color: #fff; font-family: var(--titel); font-weight: 700; font-size: 20px; margin-bottom: 10px; }
+  .schritt h4 { font-family: var(--titel); font-weight: 600; font-size: 20px; margin: 0 0 4px; }
+  .schritt p { margin: 0; font-size: 15.5px; }
+
+  .gut-zu-wissen { background: var(--weiss); border-radius: 22px; padding: 22px 24px; margin-top: 8px; font-size: 15.5px; }
+  .gut-zu-wissen ul { margin: 8px 0 0; padding-left: 20px; }
+
+  footer { text-align: center; padding: 34px 48px 44px; }
+  footer img { width: 130px; margin: 0 auto; }
+  footer .tschuess { font-family: var(--titel); font-weight: 600; font-size: 22px; margin-top: 8px; }
+  footer p { color: var(--muted); font-size: 14px; max-width: 640px; margin: 10px auto 0; }
+
+  @media (max-width: 860px) {
+    .held { grid-template-columns: 1fr; gap: 8px; }
+    .tram { margin: 0 -12px; width: calc(100% + 24px); max-width: none; }
+    .felder { grid-template-columns: 1fr; }
+    button { width: 100%; }
+    .rubriken { grid-template-columns: 1fr 1fr; }
+    .schritte { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .blatt { margin: 0; border-radius: 0; }
+    .innen, .marke, .held, .formular-band, footer { padding-left: 20px; padding-right: 20px; }
+    .welle { width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; }
+    h1 { font-size: 44px; }
+    .formular h2 { font-size: 25px; }
+    h3.abschnitt { font-size: 28px; }
+    .rubriken { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="blatt">
+
+  <div class="marke">Wuche-News <span class="punkte"><i style="background:#F0522E"></i><i style="background:#2E6BE6"></i><i style="background:#FFC53D"></i></span></div>
+
+  <section class="held">
+    <div>
+      <h1><span class="name" id="titel-name">Lios</span><br>Wuche-News</h1>
+      <img class="schnoerkel" src="png/schnoerkel.png" alt="">
+      <p class="unterzeile">Jeden Sonntagmorgen ein Mail mit Ideen für die kommende Woche in Zürich – Feste, Spielplätze, Ausflüge, Regenwetter-Pläne und ein Rezept. Mit dem Namen eures Kindes.</p>
+      <span class="pill">Gratis · jeden Sonntag · 06:00</span>
+    </div>
+    <img class="tram" src="png/held-tram.png" alt="Ein fröhliches blaues Zürcher Tram der Linie 13">
+  </section>
+
+  <section class="formular-band" id="anmelden">
+    <form class="formular" action="https://formsubmit.co/philippe@duss.io" method="POST" id="form">
+      <h2>Jetzt anmelden</h2>
+      <p class="hinweis">Zwei Angaben, fertig. Wir prüfen jede Anmeldung von Hand und schalten sie dann frei.</p>
+      <div class="felder">
+        <div>
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="ihr@beispiel.ch">
+        </div>
+        <div>
+          <label for="kind">Vorname eures Kindes</label>
+          <input type="text" id="kind" name="vorname_kind" required maxlength="30" autocomplete="off" placeholder="z. B. Mia">
+        </div>
+        <button type="submit">Anmelden</button>
+      </div>
+      <label class="einwilligung">
+        <input type="checkbox" name="einwilligung" value="ja" required>
+        <span>Ich möchte die Wuche-News jeden Sonntag per Mail erhalten. Abmelden geht jederzeit mit einem Klick.</span>
+      </label>
+      <p class="vorschau">Euer Mail heisst dann: <b id="vorschau-name">«Lios Wuche-News»</b></p>
+      <input type="text" name="_honey" class="honig" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="Neue Anmeldung: Wuche-News">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://newsletter.duss.io/danke.html">
+    </form>
+  </section>
+
+  <img class="welle" src="png/welle.png" alt="">
+
+  <section class="innen">
+    <h3 class="abschnitt">Was drin ist</h3>
+    <p class="abschnitt-intro">Jede Woche neu recherchiert – nie zweimal dasselbe. Für Kinder um 3 bis 5 Jahre, mit Schwerpunkt Stadt Zürich und ab und zu einem Ausflug in die Umgebung.</p>
+    <div class="rubriken">
+      <div class="karte"><img src="png/rubrik-wochenende.png" alt=""><div><h4>Fürs Wochenende</h4><p>Feste, Märkte und Ausflüge – passend zum Wetter.</p></div></div>
+      <div class="karte"><img src="png/rubrik-wochentags.png" alt=""><div><h4>Unter der Woche</h4><p>Ideen für freie Tage: Bibliotheken, Ateliers, Turnhallen.</p></div></div>
+      <div class="karte"><img src="png/rubrik-spielplatz.png" alt=""><div><h4>Spielplatz der Woche</h4><p>Jede Woche ein anderer – aus über 170 Plätzen der Stadt.</p></div></div>
+      <div class="karte"><img src="png/rubrik-planb.png" alt=""><div><h4>Plan B bei Regen</h4><p>Museen, Hallenbäder und Indoor-Ideen, wenn es schüttet.</p></div></div>
+      <div class="karte"><img src="png/rubrik-rezept.png" alt=""><div><h4>Rezept der Woche</h4><p>Familien-Znacht zum Mitkochen – auch für heikle Esser.</p></div></div>
+      <div class="karte"><img src="png/rubrik-comingup.png" alt=""><div><h4>Coming Up</h4><p>Was in den nächsten Wochen nicht zu verpassen ist.</p></div></div>
+    </div>
+  </section>
+
+  <img class="welle" src="png/welle.png" alt="">
+
+  <section class="innen">
+    <h3 class="abschnitt">So funktioniert's</h3>
+    <div class="schritte">
+      <div class="schritt"><h4>Anmelden</h4><p>E-Mail-Adresse und den Vornamen eures Kindes eintragen.</p></div>
+      <div class="schritt"><h4>Freischalten</h4><p>Wir schauen jede Anmeldung kurz an und schalten sie frei – meist innert ein paar Tagen.</p></div>
+      <div class="schritt"><h4>Sonntags lesen</h4><p>Ab dann jeden Sonntag um 6 Uhr: eure Wuche-News, mit dem Wetter von MeteoSchweiz.</p></div>
+    </div>
+    <div class="gut-zu-wissen">
+      <b>Gut zu wissen</b>
+      <ul>
+        <li>Ein privates Projekt aus Zürich-Höngg – keine Werbung, kein Verkauf.</li>
+        <li>Die Ideen sucht eine KI zusammen und prüft die Quellen; Daten bitte vor dem Losgehen kurz checken.</li>
+        <li>Der Name eures Kindes erscheint nur in eurem eigenen Mail.</li>
+      </ul>
+    </div>
+  </section>
+
+  <img class="welle" src="png/welle.png" alt="">
+
+  <footer>
+    <img src="png/fuss-dino.png" alt="">
+    <div class="tschuess">Bis Sonntag!</div>
+    <p><b>Datenschutz:</b> Wir speichern nur eure E-Mail-Adresse und den Vornamen eures Kindes – ausschliesslich für diesen Newsletter, ohne Weitergabe an Dritte. Die Anmeldung läuft über FormSubmit, der Versand über Resend, die Schriften kommen von Google Fonts. Abmelden oder Daten löschen lassen: jederzeit über den Link in jedem Mail oder mit einer kurzen Antwort darauf.</p>
+  </footer>
+</main>
+
+<script>
+  // Live-Vorschau: „Mias Wuche-News“
+  const feld = document.getElementById("kind");
+  const titel = document.getElementById("titel-name");
+  const vorschau = document.getElementById("vorschau-name");
+  function genitiv(n) { return n + (/[sßxz]$/i.test(n) ? "'" : "s"); }
+  feld.addEventListener("input", () => {
+    const n = feld.value.trim().replace(/[<>]/g, "");
+    const name = n ? n.charAt(0).toUpperCase() + n.slice(1) : "Lio";
+    titel.textContent = genitiv(name);
+    vorschau.textContent = "«" + genitiv(name) + " Wuche-News»";
+  });
+</script>
+</body>
+</html>
