@@ -231,11 +231,13 @@ FUSS_DINO = (
 )
 
 
-def welle(breite, farbe, strich):
-    p, x = "M2 8 Q17 1 32 8", 32
-    while x + 30 <= breite - 2:
+def welle(breite, farbe, strich, mitte=8, rand=2):
+    """Wellenlinie; rand = Abstand links/rechts, damit runde Enden nicht abgeschnitten werden."""
+    x = rand + 30
+    p = f"M{rand} {mitte} Q{rand + 15} {mitte - 7} {x} {mitte}"
+    while x + 30 <= breite - rand:
         x += 30
-        p += f" T{x} 8"
+        p += f" T{x} {mitte}"
     return f'<path d="{p}" stroke="{farbe}" stroke-width="{strich}" fill="none" stroke-linecap="round"/>'
 
 
@@ -248,7 +250,8 @@ def main():
         dateien[f"wetter-{name}"] = svg("0 0 60 60", 512, 512, inhalt)
     dateien["held-tram"] = svg("0 30 600 200", 1800, 600, HELD_TRAM, stil=SCHRIFT)
     dateien["fuss-dino"] = svg("0 0 160 120", 640, 480, FUSS_DINO)
-    dateien["welle"] = svg("0 0 544 14", 1632, 42, welle(544, BLAU, 3.5))
+    # Trennlinie zwischen den Rubriken: dick (12), Platz für runde Enden + Wellenhöhe
+    dateien["welle"] = svg("0 0 524 20", 1572, 60, welle(524, BLAU, 12, mitte=10, rand=7))
     dateien["schnoerkel"] = svg("0 0 190 14", 570, 42, welle(190, ROT, 4))
     for name, inhalt in dateien.items():
         (ORDNER / f"{name}.svg").write_text(inhalt, encoding="utf-8")
