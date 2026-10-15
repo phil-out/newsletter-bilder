@@ -131,6 +131,18 @@ RUBRIKEN = {
         f'<path d="M44 70L26 92L44 92zM76 70L94 92L76 92z" fill="{BLAU}"/>'
         f'<circle cx="60" cy="48" r="13" fill="{WEISS}"/><circle cx="60" cy="48" r="8" fill="{BLAU}"/>'
         + funkeln(22, 36, 7) + funkeln(98, 50, 5.5)),
+    "vorgemerkt": (  # Merkzettel mit Pin
+        f'<g transform="rotate(-6 60 62)"><path d="M22 26H98V82L76 104H22Z" fill="{GELB}"/>'
+        f'<path d="M76 104V82H98Z" fill="#E8A92A"/>'
+        + gesicht(56, 62, abstand=10, r=3.6) +
+        f'<path d="M36 88H64" stroke="{INK}" stroke-width="3" stroke-linecap="round" opacity=".25"/></g>'
+        f'<circle cx="60" cy="24" r="9" fill="{ROT}"/><circle cx="57" cy="21" r="3" fill="#FFFFFF" opacity=".6"/>'),
+    "wochentags": (  # Kindergarten-Täschli
+        f'<path d="M44 30Q44 14 60 14Q76 14 76 30" stroke="{INK}" stroke-width="5" fill="none" stroke-linecap="round"/>'
+        f'<rect x="24" y="28" width="72" height="80" rx="20" fill="{BLAU}"/>'
+        f'<rect x="34" y="70" width="52" height="30" rx="10" fill="{ROT}"/>'
+        f'<rect x="54" y="66" width="12" height="9" rx="3" fill="{GELB}"/>'
+        + gesicht(60, 46, abstand=10, r=3.6)),
     "monat": (  # Kalenderblatt (Quartals-News)
         f'<rect x="20" y="24" width="80" height="82" rx="12" fill="{WEISS}"/>'
         f'<path d="M20 36A12 12 0 0 1 32 24H88A12 12 0 0 1 100 36V48H20Z" fill="{ROT}"/>'
