@@ -200,7 +200,11 @@
   const feld = document.getElementById("kind");
   const titel = document.getElementById("titel-name");
   const vorschau = document.getElementById("vorschau-name");
-  function genitiv(n) { return n + (/[sßxz]$/i.test(n) ? "'" : "s"); }
+  function einName(n) { return n.length <= 2 ? n + "'s" : n + (/[sßxz]$/i.test(n) ? "'" : "s"); }
+  function genitiv(n) {
+    return n.split(/(\s*(?:&|\bund\b|,)\s*)/).filter(Boolean)
+            .map((t, i) => (i % 2 ? t : einName(t))).join("");
+  }
   feld.addEventListener("input", () => {
     const n = feld.value.trim().replace(/[<>]/g, "");
     const name = n ? n.charAt(0).toUpperCase() + n.slice(1) : "Lio";
