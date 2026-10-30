@@ -125,7 +125,7 @@
   </section>
 
   <section class="formular-band" id="anmelden">
-    <form class="formular" action="https://formsubmit.co/782655fcf99b407998f30d36e0b0c279" method="POST" id="form">
+    <form class="formular" action="https://api.web3forms.com/submit" method="POST" id="form">
       <h2>Jetzt anmelden</h2>
       <p class="hinweis">Zwei Angaben, fertig. Wir prüfen jede Anmeldung von Hand und schalten sie dann frei.</p>
       <div class="felder">
@@ -144,11 +144,11 @@
         <span>Ich möchte die Wuche-News jeden Sonntag per Mail erhalten. Abmelden geht jederzeit mit einem Klick.</span>
       </label>
       <p class="vorschau">Euer Mail heisst dann: <b id="vorschau-name">«Lios Wuche-News»</b></p>
-      <input type="text" name="_honey" class="honig" tabindex="-1" autocomplete="off">
-      <input type="hidden" name="_subject" value="Neue Anmeldung: Wuche-News">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://lio.duss.io/danke.html">
+      <input type="checkbox" name="botcheck" class="honig" tabindex="-1" autocomplete="off" style="display: none;">
+      <input type="hidden" name="access_key" value="b95fdda3-bdab-43fb-ae47-4969231369f9">
+      <input type="hidden" name="subject" value="Neue Anmeldung: Wuche-News">
+      <input type="hidden" name="from_name" value="Anmeldeseite Wuche-News">
+      <input type="hidden" name="redirect" value="https://lio.duss.io/danke.html">
     </form>
   </section>
 
@@ -191,7 +191,7 @@
   <footer>
     <img src="png/fuss-dino.png" alt="">
     <div class="tschuess">Bis Sonntag!</div>
-    <p><b>Datenschutz:</b> Wir speichern nur eure E-Mail-Adresse und den Vornamen eures Kindes – ausschliesslich für diesen Newsletter, ohne Weitergabe an Dritte. Die Anmeldung läuft über FormSubmit, der Versand über Resend, die Schriften kommen von Google Fonts. Abmelden oder Daten löschen lassen: jederzeit über den Link in jedem Mail oder mit einer kurzen Antwort darauf.</p>
+    <p><b>Datenschutz:</b> Wir speichern nur eure E-Mail-Adresse und den Vornamen eures Kindes – ausschliesslich für diesen Newsletter, ohne Weitergabe an Dritte. Die Anmeldung läuft über Web3Forms, der Versand über Resend, die Schriften kommen von Google Fonts. Abmelden oder Daten löschen lassen: jederzeit über den Link in jedem Mail oder mit einer kurzen Antwort darauf.</p>
   </footer>
 </main>
 
